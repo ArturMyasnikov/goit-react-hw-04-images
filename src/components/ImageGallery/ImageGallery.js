@@ -45,7 +45,7 @@ export default function ImageGallery({ name, incrementPage, page }) {
           })
           .finally(() => setLoading(false)),
       0
-    );
+    ); // eslint-disable-next-line
   }, [name]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function ImageGallery({ name, incrementPage, page }) {
           .then(data => setPhoto(prevState => [...prevState, ...data.hits]))
           .finally(() => setLoading(false)),
       0
-    );
+    ); // eslint-disable-next-line
   }, [page]);
 
   return (
@@ -111,8 +111,8 @@ export default function ImageGallery({ name, incrementPage, page }) {
   );
 }
 
-// ImageGallery.propTypes = {
-//   page: PropTypes.number.isRequired,
-//   name: PropTypes.string.isRequired,
-//   incrementPage: PropTypes.func,
-// };
+ImageGallery.propTypes = {
+  page: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  incrementPage: PropTypes.func,
+};
