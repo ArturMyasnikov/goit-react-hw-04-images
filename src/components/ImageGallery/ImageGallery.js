@@ -63,14 +63,6 @@ export default function ImageGallery({ name, incrementPage, page }) {
       .then(data => setPhoto(prevState => [...prevState, ...data.hits]))
       .finally(() => setLoading(false));
   }, [page]);
-  //   setTimeout(
-  //     () =>
-  //       fetchPhoto()
-  //         .then(data => setPhoto(prevState => [...prevState, ...data.hits]))
-  //         .finally(() => setLoading(false)),
-  //     0
-  //   ); // eslint-disable-next-line
-  // }, [page]);
 
   return (
     <>
