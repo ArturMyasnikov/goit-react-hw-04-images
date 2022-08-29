@@ -7,9 +7,7 @@ export function App() {
   const [name, setName] = useState('');
 
   const incrementPage = () => {
-    setPage(prevState => ({
-      page: prevState.page + 1,
-    }));
+    setPage(prevstate => prevstate + 1);
   };
 
   const onSubmit = event => {
