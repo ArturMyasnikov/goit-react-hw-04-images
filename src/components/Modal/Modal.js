@@ -8,12 +8,12 @@ export default function Modal({ onModalToggle, largeImageURL }) {
     }
   };
 
-  useEffect(() => {
+  useEffect(e => {
     window.addEventListener('keydown', onKeyHandle);
 
     return () => {
       window.removeEventListener('keydown', onKeyHandle);
-    };
+    }; // eslint-disable-next-line
   }, []);
 
   return (

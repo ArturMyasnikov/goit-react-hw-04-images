@@ -41,7 +41,7 @@ export default function ImageGallery({ name, incrementPage, page }) {
         setPhoto(data.hits);
         setTotalHits(data.totalHits);
       })
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false)); // eslint-disable-next-line
   }, [name]);
   // setTimeout(
   //   () =>
@@ -61,7 +61,7 @@ export default function ImageGallery({ name, incrementPage, page }) {
     setLoading(true);
     fetchPhoto()
       .then(data => setPhoto(prevState => [...prevState, ...data.hits]))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false)); // eslint-disable-next-line
   }, [page]);
 
   return (
