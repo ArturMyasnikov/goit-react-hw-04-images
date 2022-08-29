@@ -36,31 +36,41 @@ export default function ImageGallery({ name, incrementPage, page }) {
     }
 
     setLoading(true);
-    setTimeout(
-      () =>
-        fetchPhoto()
-          .then(data => {
-            setPhoto(data.hits);
-            setTotalHits(data.totalHits);
-          })
-          .finally(() => setLoading(false)),
-      0
-    ); // eslint-disable-next-line
+    fetchPhoto()
+      .then(data => {
+        setPhoto(data.hits);
+        setTotalHits(data.totalHits);
+      })
+      .finally(() => setLoading(false));
   }, [name]);
+  // setTimeout(
+  //   () =>
+  //     fetchPhoto()
+  //       .then(data => {
+  //         setPhoto(data.hits);
+  //         setTotalHits(data.totalHits);
+  //       })
+  //       .finally(() => setLoading(false)),
+  //   0
+  // );
 
   useEffect(() => {
     if (page === 1) {
       return;
     }
     setLoading(true);
-    setTimeout(
-      () =>
-        fetchPhoto()
-          .then(data => setPhoto(prevState => [...prevState, ...data.hits]))
-          .finally(() => setLoading(false)),
-      0
-    ); // eslint-disable-next-line
+    fetchPhoto()
+      .then(data => setPhoto(prevState => [...prevState, ...data.hits]))
+      .finally(() => setLoading(false));
   }, [page]);
+  //   setTimeout(
+  //     () =>
+  //       fetchPhoto()
+  //         .then(data => setPhoto(prevState => [...prevState, ...data.hits]))
+  //         .finally(() => setLoading(false)),
+  //     0
+  //   ); // eslint-disable-next-line
+  // }, [page]);
 
   return (
     <>

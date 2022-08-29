@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Modal({ showModal, onModalToggle, largeImageURL }) {
+export default function Modal({ onModalToggle, largeImageURL }) {
   const onKeyHandle = e => {
     if (e.code === 'Escape') {
       onModalToggle();
@@ -33,7 +33,6 @@ export default function Modal({ showModal, onModalToggle, largeImageURL }) {
 }
 
 Modal.propTypes = {
-  showModal: PropTypes.func,
   onModalToggle: PropTypes.func,
   largeImageURL: PropTypes.string.isRequired,
 };
